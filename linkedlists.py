@@ -82,6 +82,14 @@ class SLL:
             temp = temp.next
         print("None")
 
+    def length(self):
+        count = 0
+        temp = self.head
+        while temp:
+            count += 1
+            temp = temp.next
+        return count
+
 
 class DLLNode:
     def __init__(self, data):
@@ -175,12 +183,27 @@ class DLL:
             print(temp.data, end=" <-> ")
             temp = temp.next
         print("None")
+    
+    def length(self):
+        count = 0
+        temp = self.head
+        while temp:
+            count += 1
+            temp = temp.next
+        return count
 
 
 class CLLNode:
     def __init__(self, data):
         self.data = data
         self.next = None
+    def length(self):
+        count = 0
+        temp = self.head
+        while temp:
+            count += 1
+            temp = temp.next
+        return count
 
 
 class CLL:
@@ -280,6 +303,18 @@ class CLL:
                 break
         print("(back to head)")
 
+    def length(self):
+        if self.head is None:
+            return 0
+        count = 0
+        temp = self.head
+        while True:
+            count += 1
+            temp = temp.next
+            if temp == self.head:
+                break
+        return count
+
 
 sll = SLL()
 dll = DLL()
@@ -305,3 +340,7 @@ cll.insert_mid(30, 2)
 cll.display()
 cll.delete_mid(2)
 cll.display()
+
+print(sll.length())
+print(dll.length())
+print(cll.length())
